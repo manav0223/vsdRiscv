@@ -66,17 +66,22 @@ Icarus Verilog is used for Verilog simulation and functional testing. With it, y
 ```
 $ sudo apt-get update
 $ sudo apt-get install iverilog
+$ iverilog -v
 ```
 <img width="1022" height="421" alt="IVerilog Installation" src="https://github.com/user-attachments/assets/c5cf5cbb-dfb1-49a9-abe7-a146a080efbb" />
 <img width="1022" height="671" alt="iVerilog Installed" src="https://github.com/user-attachments/assets/f625d767-04aa-4921-9aed-abf3749ee650" />
 
-#### <ins>**GTKWave**</ins>
+#### <ins>**GTKWave - Waveform Viewer**</ins>
+After simulation, signals can be dumped into Value Change Dump (VCD) files. GTKWave is used to visualize these waveforms and debug signal activity over time.
 ```
 $ sudo apt-get update
 $ sudo apt install gtkwave
+$ gtkwave
 ```
 <img width="1005" height="767" alt="gtkwave" src="https://github.com/user-attachments/assets/0d809fcf-1f91-40af-af16-d8337017a17d" />
 <img width="1087" height="845" alt="gtkwave_2" src="https://github.com/user-attachments/assets/533bea38-039d-4672-b164-5a043cc6b04d" />
 
+# Conclusion
+Installing GTKWave, Icarus Verilog, and Yosys completes the foundational setup for an open-source digital design and verification environment. These tools provide a robust workflow from RTL simulation and waveform visualization to synthesis and gate-level netlist generation. With these installed, users can confidently develop, test, and synthesize Verilog designs using free, widely supported software. This setup forms the essential base for learning modern ASIC design flows and enables further exploration into advanced chip development processes.
 
 
