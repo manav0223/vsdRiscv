@@ -1,5 +1,28 @@
 # RISC-V Reference SoC Tapeout Program VSD
 
+<div align="center">
+
+[![RISC-V](https://img.shields.io/badge/RISC--V-SoC%20Tapeout-blue?style=for-the-badge&logo=riscv)](https://riscv.org/)
+[![VSD](https://img.shields.io/badge/VSD-Program-orange?style=for-the-badge)](https://vsdiat.vlsisystemdesign.com/)
+![Participants](https://img.shields.io/badge/Participants-3500+-success?style=for-the-badge)
+![India](https://img.shields.io/badge/Made%20in-India-saffron?style=for-the-badge)
+
+</div>
+
+# Program Overview
+The RISC-V Reference SoC Tapeout Program, conducted by VSD (VLSI System Design), provides hands-on experience in designing, simulating, and synthesizing a RISC-V based System-on-Chip. Participants learn the complete open-source ASIC flow starting from RTL design to GDSII tapeout.
+
+# Focus Areas:
+1. Understanding the RISC-V ISA architecture
+2. RTL design & functional verification
+3. Logic synthesis using Yosys
+4. RTL-to-GDSII flow with open-source tools
+5. Post-synthesis verification with GTKWave
+
+# Why it matters: 
+This program brings together 3500+ participants from across the world, democratizing chip design,and enabling students and engineers to be part of the Made-in-India silicon ecosystem.
+
+
 ## Tools Installation
 
 ### ⚙️ System Requirements
@@ -9,8 +32,10 @@
 | Storage  | 50 GB HDD |
 | OS       | Ubuntu 24.04.3 |
 | CPU      | 4 vCPU |
+Each tool below is required for a different stage of the RTL-to-GDS flow, making the setup essential.
 
 #### <ins>**Yosys**</ins>
+Yosys is used to convert Verilog RTL into a gate-level netlist. It is a key step in preparing the design for backend layout and timing verification.
 ```
 $ sudo apt-get update
 $ sudo apt install git                 
@@ -37,6 +62,7 @@ $ yosys
 <img width="830" height="185" alt="Yosys" src="https://github.com/user-attachments/assets/0b3c22a4-664e-438e-aa88-78a03789dd28" />
 
 #### <ins>**Iverilog**</ins>
+Icarus Verilog is used for Verilog simulation and functional testing. With it, you can verify the correctness of your RTL before synthesis.
 ```
 $ sudo apt-get update
 $ sudo apt-get install iverilog
