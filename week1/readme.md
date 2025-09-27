@@ -185,6 +185,7 @@ read_verilog dff_syncres.v
 synth -top dff_syncres
 ```
 <img width="683" height="425" alt="dff syncres statistics" src="https://github.com/user-attachments/assets/42e85249-3d68-4ac2-a5a9-97cf75134915" />
+
 ```
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 ```
@@ -215,4 +216,35 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
 <img width="1851" height="611" alt="Show asyncres_set" src="https://github.com/user-attachments/assets/e01a164e-458a-4d37-a205-cb433e830f41" />
+
+# Optimizations
+```
+gvim mult_*.v -o
+```
+Launch yosys
+```
+yosys
+```
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.li
+read_verilog mult_2.v
+synth -top mul2
+```
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+Not needed as there is nothing to map
+
+```
+show
+```
+
+Writng the netlist
+```
+write_verilog -noattr mul2_net.v
+```
+```
+!gvim mul2_net.v
+```
 
