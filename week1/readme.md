@@ -154,10 +154,11 @@ gtkwave tb_dff_asyncres_set.vcd
 ```
 <img width="1859" height="575" alt="asyncres_set GTKWave" src="https://github.com/user-attachments/assets/f15214b9-ab95-4c03-abed-b4492bfeb734" />
 
-# Synthesis of all 3 files in Yosys
+# Synthesizing asyncres file in Yosys
 Open yosys
 ```
 yosys
+```
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog dff_asyncres.v
@@ -176,7 +177,7 @@ show
 ```
 <img width="1856" height="425" alt="Show asyncres" src="https://github.com/user-attachments/assets/fa6bce6b-10d0-4eba-b33c-3d7949a37b14" />
 
-Synthesizing syncres file
+# Synthesizing syncres file in Yosys
 
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
