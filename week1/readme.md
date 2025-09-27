@@ -49,7 +49,7 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 Got a distutils error
 <img width="1865" height="449" alt="Distutils Error" src="https://github.com/user-attachments/assets/b91707f2-ba39-49d3-ab4c-2507e1c4247a" />
 
-To rectify the error
+# To rectify the error
 ```
 sudo apt-get update
 sudo apt-get install python3-setuptools
@@ -103,6 +103,114 @@ synth -top multiple_modules
 ```
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 ```
+```
+flatten
+```
+```
+show
+```
+<img width="1853" height="452" alt="Flattten Show Output" src="https://github.com/user-attachments/assets/9fb2be9b-9ae7-45c5-b0d3-6b3c5b30dcef" />
 
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top sub_module1
+```
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```
+show
+```
+<img width="1856" height="542" alt="Show Sub_module1" src="https://github.com/user-attachments/assets/364f4ca7-7070-447a-acaa-6e6053e8a12d" />
 
+```
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+```
+Now open the dumped/created vcd file in gtkwave
+```
+gtkwave tb_dff_asyncres.vcd
+```
+<img width="1856" height="562" alt="GTKWave for Asyncres" src="https://github.com/user-attachments/assets/0dd62a28-1726-4a93-8eb9-f054e223a2cc" />
+
+```
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+```
+Now open the dumped/created vcd file in gtkwave
+```
+gtkwave tb_dff_syncres.vcd
+```
+<img width="1856" height="606" alt="GTK Wave dff_syncres" src="https://github.com/user-attachments/assets/3e706899-6cb9-4cec-a481-bdca8de464a2" />
+
+```
+iverilog dff_asyncres_set.v tb_dff_asyncres_set.v
+./a.out
+```
+Now open the dumped/created vcd file in gtkwave
+```
+gtkwave tb_dff_asyncres_set.vcd
+```
+<img width="1859" height="575" alt="asyncres_set GTKWave" src="https://github.com/user-attachments/assets/f15214b9-ab95-4c03-abed-b4492bfeb734" />
+
+# Synthesis of all 3 files in Yosys
+Open yosys
+```
+yosys
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+```
+<img width="641" height="422" alt="Statistics dffasyncres" src="https://github.com/user-attachments/assets/797b0e2d-ed8c-4407-b312-3564af9ae601" />
+
+```
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+```
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```
+show
+```
+<img width="1856" height="425" alt="Show asyncres" src="https://github.com/user-attachments/assets/fa6bce6b-10d0-4eba-b33c-3d7949a37b14" />
+
+Synthesizing syncres file
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+```
+<img width="683" height="425" alt="dff syncres statistics" src="https://github.com/user-attachments/assets/42e85249-3d68-4ac2-a5a9-97cf75134915" />
+```
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+```
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```
+show
+```
+<img width="1859" height="468" alt="Show Syncres" src="https://github.com/user-attachments/assets/166f40fe-08d8-47e5-bb8a-ec30889ab2b8" />
+
+Synthesizing async_set file
+
+```
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.li
+read_verilog dff_async_set.v
+synth -top dff_async_set
+```
+<img width="648" height="380" alt="Statistics async_Set" src="https://github.com/user-attachments/assets/556b922a-e77d-4fd8-9e34-5b4990461bc6" />
+```
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+```
+```
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+```
+show
+```
+<img width="1851" height="611" alt="Show asyncres_set" src="https://github.com/user-attachments/assets/e01a164e-458a-4d37-a205-cb433e830f41" />
 
