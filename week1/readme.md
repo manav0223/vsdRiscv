@@ -196,7 +196,7 @@ show
 ```
 <img width="1859" height="468" alt="Show Syncres" src="https://github.com/user-attachments/assets/166f40fe-08d8-47e5-bb8a-ec30889ab2b8" />
 
-Synthesizing async_set file
+# Synthesizing async_set file
 
 ```
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.li
@@ -204,6 +204,7 @@ read_verilog dff_async_set.v
 synth -top dff_async_set
 ```
 <img width="648" height="380" alt="Statistics async_Set" src="https://github.com/user-attachments/assets/556b922a-e77d-4fd8-9e34-5b4990461bc6" />
+
 ```
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 ```
